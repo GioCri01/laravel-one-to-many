@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Post;
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
@@ -26,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("post-crud.create");
+        $categories = Category::all();
+        return view("post-crud.create", compact("categories"));
     }
 
     /**
@@ -68,7 +70,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-       return view("post-crud.edit", compact("post"));
+        $categories = Category::all();
+       return view("post-crud.edit", compact("post","categories"));
     }
 
     /**

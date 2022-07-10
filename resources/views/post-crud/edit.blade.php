@@ -36,11 +36,19 @@
             @enderror
         </div>
 
+        <select class="form-select my-3" name="category_id">
+            <option selected>selezione una categoria</option>
+            @foreach ( $categories as $category )
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+
+
+        </select>
 
 
 
 
-        <button type="submit" class="btn btn-primary">Invia</button>
+        <button type="submit" class="btn btn-primary d-block">Invia</button>
       </form>
 </div>
 @endsection

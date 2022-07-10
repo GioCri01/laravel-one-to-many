@@ -32,6 +32,15 @@
                 @error("content")
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
+
+                <select class="form-select mt-3" name="category_id">
+                    <option selected>selezione una categoria</option>
+                    @foreach ( $categories as $category )
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+
+
+                </select>
             </div>
 
 
